@@ -7,6 +7,7 @@
 ; For hotstrings containing keys, type the main key, hit enter, and then ctrl+space
 ;
 ; Changelog:
+; 3.8 - fixed bug with OneDrive
 ; 3.7 - disabled for Android Studio 64 bit
 ; 3.6 - disabled for NetBeans to allow auto completion with ctrl+space
 ; 3.5 - improved inline tooltip text
@@ -41,7 +42,6 @@ While pos := RegExMatch(CtrlSpace_hotstrings,"::\K.+(?=::)",m,pos+strlen(m))
 }
 
 SetTimer, TipUpdater, 300
-SetTimer, DeadMan, 5000
 
 trackKeys = 0123456789abcdefghijklmnopqrstuvwxyz,.
 Loop
@@ -88,10 +88,6 @@ TipUpdater:
 	else
 		if ++idleTip >10
 		  tooltip
-return
-
-DeadMan:
-	IniWrite, %A_TickCount%, CtrlSpace.ini, DeadMan, ticks
 return
 
 
