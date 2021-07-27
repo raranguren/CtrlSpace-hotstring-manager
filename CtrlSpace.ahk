@@ -79,7 +79,7 @@ TipUpdater:
 			}
 			else
 				trackTip .= "~ " m "`n"
-		if trackTip  .test
+		if trackTip
 			tooltip, Macros with "%trackWord%" (%matchCount%/%HotstringsCount%):`n%trackTip%, A_CaretX-(StrLen(trackWord)*8)-5, A_CaretY+18
 		else
 			tooltip
